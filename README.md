@@ -1,5 +1,5 @@
 
-# Multi-Agent Hierarchical with RAG Application Setup Guide
+# Multi-Agent Hierarchical with RAG Application and Monitoring with Traceloop, Instana Setup Guide
 
 ## Table of Contents
 
@@ -7,7 +7,6 @@
 - [Setting Up the Environment](#setting-up-the-environment)
 - [Vector Store (Milvus) Setup](#vector-store-types-used-for-rag)
 - [System Architecture](#langgraph-task-supervisor-system)
-- [Optional Usage & Configuration](#usage-optional)
 - [Traceloop Integration](#observability-frameworks-instrumented)
 - [Instana Agent Setup](#set-up-the-instana-agent)
 - [Run the Application](#run-the-multi-agent-rag-application)
@@ -21,8 +20,7 @@ This application is inspired by the tutorial from [LangGraph Hierarchical Agent 
 
 The **supervisor node** is responsible for routing tasks to specific agents. The **research supervisor** handles queries related to research, while the **writing supervisor** handles tasks like blog or document creation.
 
-![multi-agent-rag](https://github.com/user-attachments/assets/6acfe377-5eb9-4837-b366-10a771a71ad3)
-
+![multi-agent-rag-new](https://github.com/user-attachments/assets/aa6c4674-5056-4923-9ec0-dcb1d47ddc71)
 
 ---
 
@@ -62,11 +60,14 @@ Make sure to add necessary environment variables (e.g., API keys for WatsonX, RI
 
 This project utilizes **Milvus** as a vector store.
 
-### Setting up Milvus:
+### Setting up Standalone Milvus Server:
 
 - Install and configure a **Milvus standalone server** running at `http://localhost:19530`. Follow the instructions for setup [here](https://milvus.io/docs/install_standalone-docker.md).
 
 - The `milvus.py` script implements a Milvus client with `pymilvus` and connects to the Milvus server to store documents related to top AI agents.
+
+Note: If you prefer to run the application without the Docker server, you can use the database `milvus.db` instead.
+In that case, simply [uncomment the line](https://github.ibm.com/telemetryobservability/agent-observability/blob/main/MultiAgentic-RAG-Monitoring/milvus.py#L26) that sets the URI to point to `./milvus.db`. 
 
 ### Running the Setup:
 
