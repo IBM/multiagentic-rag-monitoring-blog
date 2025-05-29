@@ -1,0 +1,14 @@
+langchain
+langchain-ibm
+langchain-community
+ibm-watsonx-ai
+chromadb
+tiktoken
+bs4
+pymilvus
+langgraph
+langchain_core
+traceloop-sdk
+numpy
+langchain_experimental
+langchain_openai
