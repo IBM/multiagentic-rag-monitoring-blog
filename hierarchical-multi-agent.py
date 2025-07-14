@@ -39,16 +39,14 @@ Traceloop.init(app_name="AgenticRAG", api_endpoint="localhost:4317")
 #========================== Set working directory to save files =====================
 WORKING_DIRECTORY = Path("files")
 
-# #========================== Define LLM =====================
-rits_api_key = os.getenv("RITS_API_KEY")
+# #========================== Define LLM using WatsonX =====================
+from langchain_ibm import ChatWatsonx
 
-llm = ChatOpenAI(
-    model= "ibm-granite/granite-3.1-8b-instruct", #"meta-llama/llama-3-3-70b-instruct", #"ibm-granite/granite-3.1-2b-instruct", #,
-    temperature=0,
-    max_retries=2,
-    api_key='/',
-    base_url= 'https://inference-3scale-apicast-production.apps.rits.fmaas.res.ibm.com/granite-3-1-8b-instruct/v1', #'https://inference-3scale-apicast-production.apps.rits.fmaas.res.ibm.com/llama-3-3-70b-instruct', #'https://inference-3scale-apicast-production.apps.rits.fmaas.res.ibm.com/granite-3-1-2b-instruct', #'https://inference-3scale-apicast-production.apps.rits.fmaas.res.ibm.com/granite-3-1-8b-instruct/v1',
-    default_headers={'RITS_API_KEY': str(rits_api_key)},
+llm = ChatWatsonx(
+    model_id="ibm/granite-3-2-8b-instruct",
+    url=url,
+    project_id=project_id,
+    apikey = apikey
 )
 
 # #========================== Tools =====================

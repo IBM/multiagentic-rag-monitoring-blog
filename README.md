@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 ### 4. Configure Environment Variables
 
-Make sure to add necessary environment variables (e.g., API keys for WatsonX, RITS) to a `.env` file for the application to run.
+Make sure to add necessary environment variables (e.g., API keys for WatsonX, Tavily) to a `.env` file for the application to run. Follow [this](https://www.ibm.com/docs/en/masv-and-l/maximo-manage/continuous-delivery?topic=setup-create-watsonx-api-key) to create WatsonX API key.
 
 ---
 
